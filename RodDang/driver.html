@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap 4 Website Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+                <a class="navbar-brand" href="#">WebSiteName</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="passenger.html">Passenger</a></li>
+                    <li class="active"><a href="driver.html">Driver</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <form action="/action_page.php">
+        <div class="form-group">
+            รหัสประจำตัวคนขับ:<br>
+            <input type="text" class="form-control" id="drivername" name="id_driver" placeholder="รหัสประจำตัวคนขับ">
+            <br>เลขรถ:<br>
+            <input type="text" class="form-control" id="carid" name="id_car" placeholder="ใส่เลขรถ">
+            <br> ชื่อจริง:<br>
+            <input type="text" class="form-control" id="drivername" name="driver_name" placeholder="ใส่ชื่อจริง">
+            <br> นามสกุล:<br>
+            <input type="text" class="form-control" id="driversurname" name="driver_surname" placeholder="ใส่นามสกุล">
+            <br> รหัสบัตรประชาชน:<br>
+            <input type="text" class="form-control" id="driverciti" name="driver_citizen" placeholder="ใส่รหัสบัตรประชาชน">
+            <br> วันเกิด:<br>
+            <input type="text" class="form-control" id="drivertel" name="firstname" placeholder="ใส่วันเกิด">
+            <br> เบอร์โทรศัพท์:<br>
+            <input type="text" class="form-control" id="driveraddress" name="driver_tel" placeholder="ใส่เบอร์โทรศัพท์">
+            <br> ที่อยู่:<br>
+            <input type="text" class="form-control" id="drivergender" name="firstname" placeholder="ใส่ที่อยู่">
+            <br> เพศ:<br>
+            <input type="radio" name="gender" value="ชาย"> ชาย
+            <input type="radio" name="gender" value="หญิง"> หญิง<br>
+
+            <br>
+
+            <button type="button" class="btn btn-success" onclick="fillDataDriver()">ยืนยัน</button>
+
+        </div>
+    </form>
+    <br>
+    <table class="table">
+        <thead>
+            <tr></tr>
+            <th>เลขรถ</th>
+            <th>ชื่อคนขับ</th>
+            <th>นามสกุล</th>
+            <th></th>
+            <th><button type="button" class="btn btn-success">เพิ่มข้อมูลคนขับ</button></th>
+
+            </tr>
+        </thead>
+
+        <tbody class="outputLoop">
+        </tbody>
+    </table>
+
+
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <p>Footer</p>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+
+    <!-- firebase connect -->
+    <script type="text/javascript" src="../js/pdo.js"></script>
+    <!-- --------------  -->
+    <script type="text/javascript" src="../js/service.js"></script>
+
+    <script>
+        delegate('.outputDriver', 'click', '.btn btn-danger', (event) => {
+
+            let key = getKeyFromClosestElement(event.delegateTarget);
+
+            // Remove that particular key
+            firebase.database().ref(`driver/${key}/`).remove();
+        });
+    </script>
+
+</body>
+
+</html>
