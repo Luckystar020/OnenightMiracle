@@ -2,27 +2,81 @@
 <html>
 
 <head>
-    <title>testObj</title>
+    <title>Bootstrap 4 Website Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+                <a class="navbar-brand" href="#">WebSiteName</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="passenger.html">Passenger</a></li>
+                    <li class="active"><a href="driver.html">Driver</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <!-- Your HTML here -->
+    <form >
+        <div class="form-group">
+            เลขรถ:<br>
+            <input type="text" class="form-control" id="carid" name="id_car" placeholder="ใส่เลขรถ">
+            <br> ชื่อจริง:<br>
+            <input type="text" class="form-control" id="drivername" name="driver_name" placeholder="ใส่ชื่อจริง">
+            <br> นามสกุล:<br>
+            <input type="text" class="form-control" id="driversurname" name="driver_surname" placeholder="ใส่นามสกุล">
+            <br> รหัสบัตรประชาชน:<br>
+            <input type="text" class="form-control" id="driverciti" name="driver_citizen" placeholder="ใส่รหัสบัตรประชาชน">
+            <br> เบอร์โทรศัพท์:<br>
+            <input type="text" class="form-control" id="drivertel" name="drivertel" placeholder="ใส่วันเกิด">
+            <br> ที่อยู่:<br>
+            <input type="text" class="form-control" id="driveraddress" name="driver_tel" placeholder="ใส่เบอร์โทรศัพท์">
+            <br> เพศ:<br>
+            <input type="text" class="form-control" id="drivergender" name="drivergender" placeholder="ใส่ที่อยู่">
+            <br> รูป:<br>
+            <input type="text" class="form-control" id="driverpic" name="driverpic" placeholder="ใส่รูป">
 
-    <input type="text" id="carid" placeholder="carid" /> <br>
-    <input type="text" id="drivername" placeholder="driver_name" /> <br>
-    <input type="text" id="driversurname" placeholder="driver_surname" /> <br>
-    <input type="text" id="driverciti" placeholder="driver_citizen" /> <br>
-    <input type="text" id="drivertel" placeholder="driver_tel" /> <br>
-    <input type="text" id="driveraddress" placeholder="driver_address" /> <br>
-    <input type="text" id="drivergender" placeholder="driver_gender" /> <br>
-    <input type="text" id="driverpic" placeholder="driver_pic" /> <br>
+            <br>
+            <button id="add-button" type="button" class="btn btn-success">Add</button>
+            <button type="button" class="btn btn-success" onclick="fillDataDriver()">ยืนยัน</button>
 
-    <button id="add-button">Add</button>
+        </div>
+    </form>
 
-    <div class="outputDriver">
-        Loading...
-    </div>
+    <table class="table">
+        <thead>
+            <tr></tr>
+            <th>เลขรถ</th>
+            <th>ชื่อคนขับ</th>
+            <th>นามสกุล</th>
+            <th></th>
+            <th><button type="button" class="btn btn-success">เพิ่มข้อมูลคนขับ</button></th>
+
+            </tr>
+        </thead>
+
+        <tbody class="outputDriver">
+        </tbody>
+    </table>
 
     <!-- DOM Utility functions -->
     <script src="https://rawgit.com/jesstelford/a981e6877034231bd43b526a07b3a7b4/raw/js1-utilities.js"></script>

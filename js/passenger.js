@@ -15,12 +15,12 @@
     };
     firebase.initializeApp(config);
 
-    let listContainer = document.querySelector('.outputDriver');
+    let listContainer = document.querySelector('.outputcustomer');
     let state = {};
 
     // Whenever a new value is received from Firebase (once at initial page load,
     // then every time something changes)
-    firebase.database().ref('driver/').on('value', function(snapshot) {
+    firebase.database().ref('customer/').on('value', function(snapshot) {
 
         // Pull the list value from firebase
         state.list = snapshot.val();
@@ -29,17 +29,14 @@
     });
 
     // Clicking to add a new item
-    document.querySelector('#add-button').addEventListener('click', (event) => {
+    document.querySelector('#buttonsuccess1').addEventListener('click', (event) => {
 
         // Get the user input
-        let value1 = document.querySelector('#carid').value;
-        let value2 = document.querySelector('#drivername').value;
-        let value3 = document.querySelector('#driversurname').value;
-        let value4 = document.querySelector('#driverciti').value;
-        let value5 = document.querySelector('#drivertel').value;
-        let value6 = document.querySelector('#driveraddress').value;
-        let value7 = document.querySelector('#drivergender').value;
-        let value8 = document.querySelector('#driverpic').value;
+        let value1 = document.querySelector('#customerid').value;
+        let value2 = document.querySelector('#customername').value;
+        let value3 = document.querySelector('#customersurname').value;
+        let value4 = document.querySelector('#customertel').value;
+        let value5 = document.querySelector('#customerpic').value;
 
 
         // Remove whitespace from start and end of input
@@ -61,58 +58,45 @@
         if (!value5) {
             return;
         }
-        if (!value6) {
-            return;
-        }
-        if (!value7) {
-            return;
-        }
-        if (!value8) {
-            return;
-        } else {
-            value8 = 0;
-        }
 
-        firebase.database().ref('driver/').push({
-            car_id: value1,
-            driver_name: value2,
-            driver_surname: value3,
-            driver_citizen: value4,
-            driver_tel: value5,
-            driver_address: value6,
-            driver_gender: value7,
-            driver_pic: value8,
+        firebase.database().ref('customer/').push({
+            id_customer: value1,
+            customer_name: value2,
+            customer_surname: value3,
+            customer_tel: value4,
+            customer_pic: value5,
+
             done: false // Default all tasks to not-done
         });
 
         // Reset the input value ready for a new item
-        document.querySelector('#carid').value = '';
-        document.querySelector('#drivername').value = '';
-        document.querySelector('#driversurname').value = '';
-        document.querySelector('#driverciti').value = '';
-        document.querySelector('#drivertel').value = '';
-        document.querySelector('#driveraddress').value = '';
-        document.querySelector('#drivergender').value = '';
-        document.querySelector('#driverpic').value = '';
+        document.querySelector('#customerid').value = '';
+        document.querySelector('#customername').value = '';
+        document.querySelector('#customersurname').value = '';
+        document.querySelector('#customertel').value = '';
+        document.querySelector('#customerpic').value = '';
+
+        console.console.log("Success Add customer");
+
     });
 
     // Clicking to delete an item
-    delegate('.outputDriver', 'click', '.delete', (event) => {
+    delegate('.outputcustomer', 'click', '.delete', (event) => {
 
         let key = getKeyFromClosestElement(event.delegateTarget);
 
         // Remove that particular key
-        firebase.database().ref(`driver/${key}/`).remove();
+        firebase.database().ref(`customer/${key}/`).remove();
     });
 
     // Clicking to do / undo an item
-    delegate('.outputDriver', 'click', '.done-it', (event) => {
+    delegate('.outputcustomer', 'click', '.done-it', (event) => {
 
         let key = getKeyFromClosestElement(event.delegateTarget);
         renderFormList(into, state)
             // Update the `done` value of that particular key to be the `checked` state of
             // the `<input>` checkbox.
-        firebase.database().ref(`driver/${key}/`).update({
+        firebase.database().ref(`customer/${key}/`).update({
             done: event.delegateTarget.checked
         });
     });
@@ -122,14 +106,10 @@
         into.innerHTML = Object.keys(state.list).map((key) => {
             return `
             <tr>
-            <th>${state.list[key].car_id}</th>
-            <td>${state.list[key].driver_name}</td>
-            <td>${state.list[key].driver_surname}</td>
-            <td>${state.list[key].driver_citizen}</td>
-            <th>${state.list[key].driver_tel}</th>
-            <td>${state.list[key].driver_address}</td>
-            <td>${state.list[key].driver_gender}</td>
-            <td>${state.list[key].driver_pic}</td>
+            <th>${state.list[key].id_customer}</th>
+            <td>${state.list[key].customer_name}</td>
+            <td>${state.list[key].customer_surname}</td>
+            <td>${state.list[key].customer_tel}</td>
             <td data-id="${key}">
             <button class="delete btn btn-danger">ลบ</button>
             <button type="button" class="btn btn-warning">แก้ไข</button>
@@ -144,10 +124,10 @@
         into.innerHTML = Object.keys(state.list).map((key) => {
             return `
             <tr>
-            <th>${state.list[key].car_id}</th>
-            <td>${state.list[key].driver_name}</td>
-            <td>${state.list[key].driver_surname}</td>
-            <td>${state.list[key].driver_tel}</td>
+            <th>${state.list[key].id_customer}</th>
+            <td>${state.list[key].customer_name}</td>
+            <td>${state.list[key].customer_surname}</td>
+            <td>${state.list[key].customer_tel}</td>
             <td data-id="${key}">
             <button class="delete btn btn-danger">ลบ</button>
             <button type="button" class="btn btn-warning">แก้ไข</button>

@@ -1,86 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Bootstrap 4 Website Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-
-
-</head>
 <body>
+    <!-- <button type="button" class="btn btn-success">เพิ่ม</button> -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>รหัส</th>
+                <th>ชื่อ</th>
+                <th>เบอร์โทร</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th>1</th>
+                <td>Name1</td>
+                <td>012345678</td>
+                <!-- <td><button type="button" class="btn btn-success">เพิ่ม</button></td> -->
+                <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
+                <td><button type="button" class="btn btn-danger">ลบ</button></td>
+            </tr>
+
+            <tr>
+                <th>2</th>
+                <td>Name2</td>
+                <td>012345678</td>
+                <!-- <td><button type="button" class="btn btn-success">เพิ่ม</button></td> -->
+                <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
+                <td><button type="button" class="btn btn-danger">ลบ</button></td>
+            </tr>
+
+        </tbody>
+    </table>
 
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <p>Footer</p>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="passenger.html">Passenger</a></li>
-        <li><a href="driver.html">Driver</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<button type="button" class="btn btn-success">เพิ่ม</button>
-<table class="table">
-  <thead>
-    <tr>
-      <th>รหัส</th>
-      <th>ชื่อ</th>
-      <th>เบอร์โทร</th> 
-      <th>Action</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>Name1</td>
-      <td>012345678</td>
-      <!-- <td><button type="button" class="btn btn-success">เพิ่ม</button></td> -->
-      <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
-      <td><button type="button" class="btn btn-danger">ลบ</button></td>
-    </tr>
-    
-    <tr>
-      <th>2</th>
-      <td>Name2</td>
-      <td>012345678</td>
-      <!-- <td><button type="button" class="btn btn-success">เพิ่ม</button></td> -->
-      <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
-      <td><button type="button" class="btn btn-danger">ลบ</button></td>
-    </tr>
 
-  </tbody>
-</table>
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 
-
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <p>Footer</p>
-</div>
-
-<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-
-<!-- firebase connect -->
-<script type="text/javascript" src="../js/pdo.js"></script>
-<!-- --------------  -->
-<script type="text/javascript" src="../js/service.js"></script>
+    <!-- firebase connect -->
+    <script type="text/javascript" src="../js/pdo.js"></script>
+    <!-- --------------  -->
+    <script type="text/javascript" src="../js/service.js"></script>
 
 </body>
 </html>
-

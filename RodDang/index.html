@@ -1,85 +1,73 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Bootstrap 4 Website Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
- 
+    <title>Bootstrap 4 Website Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <!-- DOM Utility functions -->
+    <script src="https://rawgit.com/jesstelford/a981e6877034231bd43b526a07b3a7b4/raw/js1-utilities.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <script type="text/javascript" src="../config/fdo.js"></script>
+
 </head>
+
 <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>                        
+                        </button>
+                <a class="navbar-brand" href="index.html">RodDang</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="active dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">passenger<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a onclick="changecontent('passenger.html')">ตารางข้อมูลลูกค้า</a></li>
+                            <li><a onclick="changecontent('addcustomer.html')">เพิ่มข้อมูลลูกค้า</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="active dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">driver<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a onclick="changecontent('driver.html')">ตารางข้อมูลคนขับรถ</a></li>
+                            <li><a onclick="changecontent('adddriver.html')">เพิ่มข้อมูลคนขับรถ</a></li>
+                        </ul>
+                    </li>
+                    <li><a onclick="changecontent('driver.html')"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a onclick="changecontent('login.html')"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <div id="content-page">
+        <div class="jumbotron text-center">
+            <h1>Company</h1>
+            <p>We specialize in blablabla</p>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="passenger.html">Passenger</a></li>
-        <li><a href="driver.html">Driver</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Team</th>
-      <th>Team</th>
-      <th>Team</th>
-      <th>Add</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <th>data1</th>
-      <td>data2</td>
-      <td>data3</td>
-      <td><button type="button" class="btn btn-success">เพิ่ม</button></td>
-      <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
-      <td><button type="button" class="btn btn-danger">ลบ</button></td>
-    </tr>
-    
-    <tr>
-      <th>data1</th>
-      <td>data2</td>
-      <td>data3</td>
-    </tr>
-
-  </tbody>
-</table>
-
-
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <p>Footer</p>
-</div>
-
-<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-
-<!-- firebase connect -->
-<script type="text/javascript" src="../js/pdo.js"></script>
-<!-- --------------  -->
-<script type="text/javascript" src="../js/service.js"></script>
 
 </body>
+
+<script>
+    function changecontent(params) {
+        $('#content-page').load(params);
+        console.log(params);
+    }
+</script>
+
+
+
 </html>
-
-

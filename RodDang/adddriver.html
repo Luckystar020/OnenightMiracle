@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- <head>
+    <title>Bootstrap 4 Website Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+</head> -->
+<script type="text/javascript" src="../js/fillDriver.js"></script>
+
+<body>
+    <form class="container ">
+        <div class="col-sm-8">
+            <div>
+                <div class="col-sm-6">
+                    เลขรถ
+                    <input type="text" class="form-control" id="carid" name="id_car" placeholder="ใส่เลขรถ">
+                </div>
+            </div>
+
+            <div>
+                <div class="col-sm-6">
+                    ชื่อจริง
+                    <input type="text" class="form-control" id="drivername" name="driver_name" placeholder="ใส่ชื่อจริง"> </div>
+            </div>
+            <div class="col-sm-6">
+                นามสกุล
+                <input type="text" class="form-control" id="driversurname" name="driver_surname" placeholder="ใส่นามสกุล">
+            </div>
+
+            <div>
+                <div class="col-sm-6">
+                    วันเกิด
+                    <input type="date" class="form-control" id="driverbirth" name="driver_birth" placeholder="ใส่วันเกิด">
+                </div>
+                <div class="col-sm-6">
+                    รหัสบัตรประชาชน
+                    <input type="text" class="form-control" id="drivercitizen" name="driver_citizen" placeholder="ใส่รหัสบัตรประชาชน">
+                </div>
+            </div>
+
+            <div>
+                <div class="col-sm-6">
+                    เบอร์โทรศัพท์
+                    <input type="text" class="form-control" id="drivertel" name="driver_tel" placeholder="ใส่เบอร์โทรศัพท์">
+                </div>
+                <div class="col-sm-6">
+                    เพศ<br>
+                    <span class="sex">
+                                <input type="radio" name="gender" id="drivergender" value="ชาย"> ชาย
+                            </span>
+                    <span class="sex">
+                                <input type="radio" name="gender" class="sex" id="drivergender" value="หญิง"> หญิง
+                            </span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-sm-4">
+            <div>รูปภาพ</div>
+            <img id="blah" src="http://placehold.it/180" alt="your image" />
+            <input type='file' accept="image/*" id="driverpic" onchange="readURL(this);" />
+        </div>
+
+        <div>
+            <div class="col-sm-10">
+                <div id="driveraddress1">ที่อยู่</div>
+                <input type="text" class="form-control" id="driveraddress" name="driver_address" placeholder="ใส่ที่อยู่">
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-success" id="buttonsuccess">ยืนยัน</button>
+
+            </div>
+
+        </div>
+
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#blah')
+                            .attr('src', e.target.result);
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        </script>
+
+        <br>
+
+    </form>
+    <br>
+
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <p>Footer</p>
+    </div>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script> -->
+
+    <!-- firebase connect -->
+    <!-- <script type="text/javascript" src="../js/pdo.js"></script> -->
+    <!-- --------------  -->
+
+
+</body>
+
+</html>
