@@ -16,11 +16,24 @@
 
     // Clicking to delete an item
     delegate('.outputDriver', 'click', '.delete', (event) => {
+        if (event) {
 
-        let key = getKeyFromClosestElement(event.delegateTarget);
+            let key = getKeyFromClosestElement(event.delegateTarget);
+
+            if (window.confirm(`ยืนยันการลบ ID ${key}`)) {
+                // They clicked Yes
+                // Remove that particular key
+                firebase.database().ref(`driver/${key}/`).remove();
+            } else {
+                // They clicked no
+                return;
+            }
+
+        }
+
+        // let key = getKeyFromClosestElement(event.delegateTarget);
 
         // Remove that particular key
-        firebase.database().ref(`driver/${key}/`).remove();
     });
 
     // Clicking to do / undo an item
@@ -40,17 +53,15 @@
         into.innerHTML = Object.keys(state.list).map((key) => {
             return `
             <tr>
-            <th>${state.list[key].car_id}</th>
+            <td>${state.list[key].driver_id}</td>
             <td>${state.list[key].driver_name}</td>
-            <td>${state.list[key].driver_surname}</td>
+            <td>${state.list[key].driver_email}</td>
+            <td>${state.list[key].driver_tel}</td>
             <td>${state.list[key].driver_citizen}</td>
-            <th>${state.list[key].driver_tel}</th>
-            <td>${state.list[key].driver_address}</td>
-            <td>${state.list[key].driver_gender}</td>
-            <td>${state.list[key].driver_pic}</td>
+            <td>${state.list[key].carNumber}</td>
             <td data-id="${key}">
             <button type="button" class="delete btn btn-danger">ลบ</button>
-            <button type="button" class=" done-itbtn btn-warning">แก้ไข</button>
+            <button type="button" class=" done-itbtn btn-warning" onclick="changecontent('editDriver.html')">แก้ไข</button>
             </td>
           </tr>
         `;

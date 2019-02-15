@@ -6,7 +6,7 @@
 
     // Whenever a new value is received from Firebase (once at initial page load,
     // then every time something changes)
-    firebase.database().ref('customer/').on('value', function(snapshot) {
+    firebase.database().ref('passenger/').on('value', function(snapshot) {
 
         // Pull the list value from firebase
         state.list = snapshot.val();
@@ -17,10 +17,21 @@
     // Clicking to delete an item
     delegate('.outputcustomer', 'click', '.delete', (event) => {
 
-        let key = getKeyFromClosestElement(event.delegateTarget);
+        if (event) {
 
-        // Remove that particular key
-        firebase.database().ref(`customer/${key}/`).remove();
+            let key = getKeyFromClosestElement(event.delegateTarget);
+
+            if (window.confirm(`ยืนยันการลบ ID ${key}`)) {
+                // They clicked Yes
+                // Remove that particular key
+                firebase.database().ref(`passenger/${key}/`).remove();
+            } else {
+                // They clicked no
+                return;
+            }
+
+        }
+
     });
 
     // Clicking to do / undo an item
@@ -30,7 +41,7 @@
         renderFormList(into, state)
             // Update the `done` value of that particular key to be the `checked` state of
             // the `<input>` checkbox.
-        firebase.database().ref(`customer/${key}/`).update({
+        firebase.database().ref(`passenger/${key}/`).update({
             done: event.delegateTarget.checked
         });
     });
@@ -40,13 +51,15 @@
         into.innerHTML = Object.keys(state.list).map((key) => {
             return `
             <tr>
-            <th>${state.list[key].id_customer}</th>
+            <td>${state.list[key].customerId}</td>
+            <td>${state.list[key].customer_email}</td>
             <td>${state.list[key].customer_name}</td>
-            <td>${state.list[key].customer_surname}</td>
+            <td>${state.list[key].customer_pic}</td>
             <td>${state.list[key].customer_tel}</td>
+            <td>${state.list[key].providerId}</td>
             <td data-id="${key}">
             <button class="delete btn btn-danger">ลบ</button>
-            <button type="button" class="btn btn-warning">แก้ไข</button>
+            <button type="button" class=" done-itbtn btn-warning" onclick="changecontent('editPassenger.html')">แก้ไข</button>
             </td>
           </tr>
         `;

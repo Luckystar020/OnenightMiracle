@@ -1,15 +1,22 @@
 (function() {
     'use strict';
-
+    var key = "";
+    //auto gen keyId
+    key = firebase
+      .database()
+      .ref()
+      .push().key;
     // Clicking to add a new item
     document.querySelector('#buttonsuccess1').addEventListener('click', (event) => {
 
         // Get the user input
-        let value1 = document.querySelector('#customerid').value;
-        let value2 = document.querySelector('#customername').value;
-        let value3 = document.querySelector('#customersurname').value;
+        let value1 = document.querySelector('#customername').value;
+        let value2 = document.querySelector('#customersurname').value;
+        let value3 = document.querySelector('#customeremail').value;
         let value4 = document.querySelector('#customertel').value;
         let value5 = document.querySelector('#customerpic').value;
+        let value6 = document.querySelector('#providerId').value;
+
 
 
         // Remove whitespace from start and end of input
@@ -30,26 +37,32 @@
         }
         if (!value5) {
             return;
+        }
+        if (!value6) {
+            return;
         } else {
             value5 = 0;
         }
 
-        firebase.database().ref('customer/').push({
-            id_customer: value1,
-            customer_name: value2,
-            customer_surname: value3,
+        firebase.database().ref('passenger/').push({
+            customerId: key,
+            customer_name: value1+" "+value2,
+            customer_email: value3,
             customer_tel: value4,
             customer_pic: value5,
-
-            done: false // Default all tasks to not-done
+            providerId: value6
+            
+        }).then(function() {
+            alert("Added data successful");
         });
-
         // Reset the input value ready for a new item
-        document.querySelector('#customerid').value = '';
         document.querySelector('#customername').value = '';
         document.querySelector('#customersurname').value = '';
+        document.querySelector('#customeremail').value = '';
         document.querySelector('#customertel').value = '';
         document.querySelector('#customerpic').value = '';
+        document.querySelector('#providerId').value = '';
+        key ='';
 
         console.log("Success Add customer");
 

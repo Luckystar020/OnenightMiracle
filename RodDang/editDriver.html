@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<script type="text/javascript" src="../js/fillDriver.js"></script>
+<script type="text/javascript" src="../js/editDriver.js"></script>
 
 <body>
     <form class="container ">
         <div class="col-sm-8">
+                <div>
+                        <div class="col-sm-6">
+                                รหัสประจำตัวคนขับ
+                                <input type="text" class="form-control" id="driver_id" name="driver_id" placeholder="ใส่รหัสประจำตัวคนขับ">
+                            </div>
+                        </div>
             <div>
                 <div class="col-sm-6">
                     เลขรถ
@@ -50,12 +56,16 @@
         </div>
 
         <div>
-            <div class="col-sm-10">
+            <div class="col-sm-8">
             </div>
             <div class="col-sm-2">
-                <button type="button" class="btn btn-success" id="buttonsuccess">ยืนยัน</button>
+                <button type="button" class="btn btn-success" id="buttonedit">ยืนยัน</button>
                 
             </div>
+            <div class="col-sm-2">
+                    <button type="button" class="btn btn-danger" id="buttoncancel" onclick="changecontent('driver.html')">ยกเลิก</button>
+                    
+                </div>
 
         </div>
 
