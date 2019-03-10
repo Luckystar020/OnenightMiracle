@@ -58,8 +58,9 @@
             <td>${state.list[key].customer_tel}</td>
             <td>${state.list[key].providerId}</td>
             <td data-id="${key}">
-            <button class="delete btn btn-danger">ลบ</button>
+            <button type="button" class="delete btn btn-danger">ลบ</button>
             <button type="button" class=" done-itbtn btn-warning" onclick="changecontent('editPassenger.html')">แก้ไข</button>
+            <button type="button" class=" done-itbtn btn-info" onclick="changecontent('descriptionPassenger.html')">รายละเอียด</button>
             </td>
           </tr>
         `;

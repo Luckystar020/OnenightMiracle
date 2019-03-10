@@ -42,7 +42,7 @@
         margin-right: 15px;
         float: right;
     }
-
+    
     .modal {
         /* display: : none */
         position: fixed;
@@ -52,12 +52,128 @@
         height: 100%;
         width: 100%;
         overflow: auto;
-        background-color: rgb(0,0,0.0.5);
+        background-color: rgb(0, 0, 0.0.5);
     }
-
-    .modal-content{
+    
+    .modal-content {
         background-color: white;
         margin: 20% auto;
         padding: 20 px;
         width: 70%
+    }
+    
+    .welcome {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 70px;
+        text-align: left;
+        padding-top: 260px;
+        padding-left: 230px;
+        margin: auto;
+        color: white;
+        -moz-animation-duration: 3s;
+        -webkit-animation-duration: 3s;
+        -moz-animation-name: slidein;
+        -webkit-animation-name: slidein;
+    }
+    
+    @-moz-keyframes slidein {
+        from {
+            margin-top: 100%;
+            height: 300%
+        }
+        to {
+            margin-top: 0%;
+            height: 100%;
+        }
+    }
+    
+    @-webkit-keyframes slidein {
+        from {
+            margin-top: 100%;
+            height: 300%
+        }
+        to {
+            margin-top: 0%;
+            height: 100%;
+        }
+    }
+    
+    .roddang {
+        font-family: 'Gabriola';
+        font-size: 60px;
+        padding-left: 325px;
+        color: white;
+        -moz-animation-duration: 3.8s;
+        -webkit-animation-duration: 3.8s;
+        -moz-animation-name: slidein;
+        -webkit-animation-name: slidein;
+    }
+    
+    @-moz-keyframes slidein {
+        from {
+            margin-top: 100%;
+            width: 300%
+        }
+        to {
+            margin-top: 0%;
+            width: 100%;
+        }
+    }
+    
+    @-webkit-keyframes slidein {
+        from {
+            margin-top: 100%;
+            width: 300%
+        }
+        to {
+            margin-top: 0%;
+            width: 100%;
+        }
+    }
+    
+    .button4 {
+        border-radius: 8px;
+        margin-left: 325px;
+        width: 13.5em;
+        padding: 5;
+        color: white;
+        opacity: 0.9;
+        background-color: #ed1818;
+        border-color: #a80707;
+        -moz-animation-duration: 4s;
+        -webkit-animation-duration: 4s;
+        -moz-animation-name: slidein1;
+        -webkit-animation-name: slidein1;
+    }
+    
+    @-moz-keyframes slidein1 {
+        from {
+            margin-top: 100%;
+            width: 13.5em
+        }
+        to {
+            margin-top: 0%;
+            width: 13.5em;
+        }
+    }
+    
+    @-webkit-keyframes slidein1 {
+        from {
+            margin-top: 100%;
+            width: 13.5em
+        }
+        to {
+            margin-top: 0%;
+            width: 13.5em;
+        }
+    }
+    
+    .bgimg {
+        position: absolute;
+        background-image: url("../src/image/roddang.jpg");
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-top: -20px;
     }

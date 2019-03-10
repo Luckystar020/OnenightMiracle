@@ -61,7 +61,7 @@
             <td>${state.list[key].carNumber}</td>
             <td data-id="${key}">
             <button type="button" class="delete btn btn-danger">ลบ</button>
-            <button type="button" class=" done-itbtn btn-warning" onclick="changecontent('editDriver.html')">แก้ไข</button>
+            <button type="button" class="done-itbtn btn btn-warning" onclick="changecontent('editDriver.html')">แก้ไข</button>
             </td>
           </tr>
         `;
