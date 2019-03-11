@@ -2,22 +2,6 @@ window.onload = function() {
     showData();
 }
 
-function login() {
-
-}
-
-function signUp() {
-
-}
-
-function btnFind() {
-
-}
-
-function btnAdd() {
-
-}
-
 function fillDataDriver() {
     //Set this fill value from frontend
     var car_id = document.getElementById('carid');

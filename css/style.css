@@ -16,7 +16,7 @@
         cursor: pointer;
     }
     
-    img {
+    img#blah {
         width: 210px;
         height: 180px;
         padding: 0px;
@@ -58,7 +58,7 @@
     .modal-content {
         background-color: white;
         margin: 20% auto;
-        padding: 20 px;
+        padding: 20px;
         width: 70%
     }
     
