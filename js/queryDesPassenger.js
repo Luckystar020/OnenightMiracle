@@ -44,16 +44,18 @@
 
     // });
 
-    // Clicking to do / undo an item
-    // delegate('.outputcustomer', 'click', '#des', (event) => {
+    //Clicking to do / undo an item
+    // delegate('.outputDesPass', 'click', '#des', (event) => {
     //     if (event) {
 
-    //         let key = getKeyFromClosestElement(event.delegateTarget);
-
-    //         if (window.confirm(`ยืนยันการลบ ID ${key}`)) {
+    //         let start = getKeyFromClosestElement(event.delegateTarget);
+    //         let end = getIdFromClosestElement(event.delegateTarget);
+    //         if (window.confirm(`ยืนยันการลบ ID ${start} ${end}`)) {
     //             // They clicked Yes
     //             // Remove that particular key
-    //             sessionStorage.setItem('key', key);
+    //             sessionStorage.setItem('start', start);
+    //             sessionStorage.setItem('end', end);
+    //             changecontent('destinationMap.html');
     //         } else {
     //             // They clicked no
     //             return;
@@ -85,8 +87,7 @@
             <td>${state.list[key].load_baggage} ใบ</td>
             <td>${state.list[key].price} บาท</td>
             <td>${formatted_date}</td>
-            <td>${state.list[key].start_lat} , ${state.list[key].start_long}</td>
-            <td>${state.list[key].latitude} , ${state.list[key].longitude}</td>
+            <td> <button type="button" id="des" class=" done-it btn btn-info" onclick="gotoMap(${state.list[key].start_lat},${state.list[key].start_long},${state.list[key].latitude},${state.list[key].longitude})" >รายละเอียด</button></td>
             <td>${state.list[key].status_book}</td>
           </tr>
         `;
@@ -106,4 +107,6 @@
         // Extract and return that attribute
         return closestItemWithId.getAttribute('data-id');
     }
+
+
 })();

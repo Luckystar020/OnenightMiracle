@@ -1,7 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
 <!-- --------------  -->
 <script type="text/javascript" src="../js/queryDesPassenger.js"></script>
+<script>
+    function gotoMap(s_lng, s_lat, lng, lat) {
+        window.open(`https://www.google.com/maps/dir/${s_lng},${s_lat}/${lng},${lat}`, `_blank`);
+    }
+</script>
 
 <body>
     <div class="table-responsive">
@@ -13,8 +16,7 @@
                     <th>จำนวนสัมภาระ</th>
                     <th>ราคา</th>
                     <th>เวลาที่เรียก</th>
-                    <th>จุดรับ</th>
-                    <th>จุดส่ง</th>
+                    <th>จุดรับ-ส่ง</th>
                     <th>สถานะ</th>
                 </tr>
             </thead>
@@ -26,5 +28,3 @@
 
 
 </body>
-
-</html>

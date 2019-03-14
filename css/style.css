@@ -177,3 +177,19 @@
         background-repeat: no-repeat;
         margin-top: -20px;
     }
+    
+    .zoom {
+        padding: 10px;
+        transition: transform .3s;
+        width: 75px;
+        height: 75px;
+        margin: 0 auto;
+    }
+    
+    .zoom:hover {
+        -ms-transform: scale(2);
+        /* IE 9 */
+        -webkit-transform: scale(2);
+        /* Safari 3-8 */
+        transform: scale(2);
+    }

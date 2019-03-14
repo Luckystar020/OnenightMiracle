@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,9 +15,6 @@
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
     <script type="text/javascript" src="../config/fdo.js"></script>
-    <!-- Loading Bar Framework -->
-    <script type="text/javascript" src="../config/loading-bar.js"></script>
-    <link rel="stylesheet" href="../css/loading-bar.css">
 
 </head>
 
@@ -78,7 +76,7 @@
     $(document).ready(function() {
         // executes when HTML-Document is loaded and DOM is ready
         if (sessionStorage.getItem("uid") == null) {
-            window.location.assign("testLogin.html")
+            window.location.assign("login.html")
         } else {
             let email = sessionStorage.getItem("email");
             alert(`Welcome to Roddang Mr./Mrs. ${email}`)
@@ -93,7 +91,7 @@
 
     function handleSignOut() {
         firebase.auth().signOut().then(function() {
-            if (window.confirm('Are U Sure?')) {
+            if (window.confirm('ต้องการออกจากระบบหรือไม่ ?')) {
                 // They clicked Yes
                 console.log('Sign-out successful.')
                 sessionStorage.clear();
