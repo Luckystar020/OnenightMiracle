@@ -2,20 +2,16 @@
 <html lang="en">
 
 <script type="text/javascript" src="../js/editDriver.js"></script>
+<script src="../js/upload.js"></script>
+
 
 <body>
     <form class="container ">
         <div class="col-sm-8">
             <div>
                 <div class="col-sm-6">
-                    รหัสประจำตัวคนขับ
-                    <input type="text" class="form-control" id="driver_id" name="driver_id" placeholder="ใส่รหัสประจำตัวคนขับ">
-                </div>
-            </div>
-            <div>
-                <div class="col-sm-6">
                     เลขรถ
-                    <input type="text" class="form-control" id="carid" name="id_car" placeholder="ใส่เลขรถ">
+                    <input type="text" class="form-control" id="carNumber" name="id_car" placeholder="ใส่เลขรถ">
                 </div>
             </div>
 
@@ -47,27 +43,28 @@
                     <input type="text" class="form-control" id="drivertel" name="driver_tel" placeholder="ใส่เบอร์โทรศัพท์">
                 </div>
             </div>
+            <div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-success" id="buttonedit">ยืนยัน</button>
+
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-danger" id="buttoncancel" onclick="changecontent('driver.html')">ยกเลิก</button>
+
+                </div>
+
+            </div>
         </div>
+
 
         <div class="col-sm-4">
             <div>รูปภาพ</div>
-            <img id="blah" src="http://placehold.it/180" alt="your image" />
-            <input type='file' accept="image/*" id="driverpic" onchange="readURL(this);" />
+            <img id="showpic" src="http://placehold.it/180" alt="your image" />
+            <input type="file" id="upload" required accept="image/*" type='file' onchange="readURL(this);" />
         </div>
 
-        <div>
-            <div class="col-sm-8">
-            </div>
-            <div class="col-sm-2">
-                <button type="button" class="btn btn-success" id="buttonedit">ยืนยัน</button>
 
-            </div>
-            <div class="col-sm-2">
-                <button type="button" class="btn btn-danger" id="buttoncancel" onclick="changecontent('driver.html')">ยกเลิก</button>
 
-            </div>
-
-        </div>
 
         <script>
             function readURL(input) {
@@ -75,12 +72,13 @@
                     var reader = new FileReader();
 
                     reader.onload = function(e) {
-                        $('#blah')
+                        $('#showpic')
                             .attr('src', e.target.result);
                     };
 
                     reader.readAsDataURL(input.files[0]);
                 }
+
             }
         </script>
 

@@ -38,12 +38,14 @@
     delegate('.outputcustomer', 'click', '#edit', (event) => {
         if (event) {
 
-            let key = getKeyFromClosestElement(event.delegateTarget);
+            let keyEdit = getKeyFromClosestElement(event.delegateTarget);
 
-            if (window.confirm(`ต้องการแก้ไขข้อมูลหรือๆไม่ ? ${key}`)) {
+
+            if (window.confirm(`ต้องการแก้ไขข้อมูลหรือๆไม่ ? ${keyEdit}`)) {
+                sessionStorage.setItem('key', keyEdit);
+
                 // They clicked Yes
                 // Remove that particular key
-                sessionStorage.setItem('key', key);
                 changecontent('editPassenger.html');
             } else {
                 // They clicked no
@@ -84,7 +86,7 @@
             <td>${state.list[key].providerId}</td>
             <td data-id="${key}">
             <button type="button" class="delete btn btn-danger">ลบ</button>
-            <button type="button" id ="edit" class=" done-it btn btn-warning" >แก้ไข</button>
+            <button type="button" id="edit" class=" done-it btn btn-warning" >แก้ไข</button>
             <button type="button" id="des" class=" done-it btn btn-info" >รายละเอียด</button>
             </td>
           </tr>

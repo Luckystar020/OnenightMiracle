@@ -3,70 +3,90 @@
     var key = "";
     //auto gen keyId
     key = firebase
-      .database()
-      .ref()
-      .push().key;
+        .database()
+        .ref()
+        .push().key;
     // Clicking to add a new item
     document.querySelector('#buttonsuccess1').addEventListener('click', (event) => {
-
         // Get the user input
         let value1 = document.querySelector('#customername').value;
         let value2 = document.querySelector('#customersurname').value;
         let value3 = document.querySelector('#customeremail').value;
         let value4 = document.querySelector('#customertel').value;
-        let value5 = document.querySelector('#customerpic').value;
-        let value6 = document.querySelector('#providerId').value;
-
-
+        let value5 = document.querySelector('#providerId').value;
+        var value6 = document.querySelector('#showpic').src;
 
         // Remove whitespace from start and end of input
         //value = value.trim();
 
         // Nothing entered, return early from this function
         if (!value1) {
-            return;
+            alert("ให้กรอกชื่อลูกค้า");
+            return false;
         }
         if (!value2) {
-            return;
+            alert("ให้กรอกสกุลลูกค้า");
+            return false;
         }
         if (!value3) {
-            return;
+            alert("ให้กรอกอีเมลลูกค้า");
+            return false;
         }
         if (!value4) {
-            return;
+            alert("ให้กรอกเบอร์โทรลูกค้า");
+            return false;
         }
         if (!value5) {
-            return;
+            alert("ให้กรอกรหัสลูกค้า");
+            return false;
         }
-        if (!value6) {
-            return;
+        if (value6 != 'http://placehold.it/180' && !value6) {
+            alert("ให้เลือกรูปลูกค้า");
+            return false;
         } else {
-            value5 = 0;
+            confirmUpload();
+            setTimeout(() => {
+                InsertPassenger(value1, value2, value3, value4, value5, value6)
+            }, 2000);
+
         }
-
-        firebase.database().ref('passenger/').push({
-            customerId: key,
-            customer_name: value1+" "+value2,
-            customer_email: value3,
-            customer_tel: value4,
-            customer_pic: value5,
-            providerId: value6
-            
-        }).then(function() {
-            alert("Added data successful");
-        });
-        // Reset the input value ready for a new item
-        document.querySelector('#customername').value = '';
-        document.querySelector('#customersurname').value = '';
-        document.querySelector('#customeremail').value = '';
-        document.querySelector('#customertel').value = '';
-        document.querySelector('#customerpic').value = '';
-        document.querySelector('#providerId').value = '';
-        key ='';
-
-        console.log("Success Add customer");
 
     });
 
+    function InsertPassenger(value1, value2, value3, value4, value5, value6) {
+        // console.log("In Method InsertPassenger");
 
+        value6 = sessionStorage.getItem('ImgURL');
+        // console.log("sessionImg : ", value6);
+        if (value6 != null) {
+            // console.log("sessionImg : ", value6);
+            firebase.database().ref('passenger/').push({
+                customerId: key,
+                customer_name: value1 + " " + value2,
+                customer_email: value3,
+                customer_tel: value4,
+                providerId: value5,
+                customer_pic: value6
+
+
+            }).then(function() {
+                alert("Added data successful");
+
+            }).finally(function() {
+                // console.log("Clear all Data in Fields");
+
+                // Reset the input value ready for a new item
+                document.querySelector('#customername').value = '';
+                document.querySelector('#customersurname').value = '';
+                document.querySelector('#customeremail').value = '';
+                document.querySelector('#customertel').value = '';
+                document.querySelector('#showpic').src = 'http://placehold.it/180';
+                document.querySelector('#providerId').value = '';
+                key = '';
+                sessionStorage.removeItem('ImgURL');
+                //console.log("Success Add customer");
+                changecontent('passenger.html');
+            });
+        }
+    }
 })();

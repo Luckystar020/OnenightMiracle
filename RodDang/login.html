@@ -94,6 +94,7 @@
                 errors.style.display = "none";
                 firebase.auth().signInWithEmailAndPassword(email, password).then(res => {
                     console.log(res);
+
                     sessionStorage.setItem("uid", res.uid);
                     sessionStorage.setItem("email", res.email);
                     window.location.assign("index.html");

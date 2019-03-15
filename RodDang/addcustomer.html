@@ -3,6 +3,7 @@
 <script type="text/javascript" src="../js/fillPassenger.js"></script>
 <!-- DOM Utility functions -->
 <script src="https://rawgit.com/jesstelford/a981e6877034231bd43b526a07b3a7b4/raw/js1-utilities.js"></script>
+<script src="../js/upload.js"></script>
 
 <body>
 
@@ -32,7 +33,7 @@
                 </div>
                 <div class="col-sm-6">
                     email
-                    <input type="text" class="form-control" id="customeremail" name="customer_tel" placeholder="ใส่เบอร์โทรศัพท์">
+                    <input type="text" class="form-control" id="customeremail" name="customer_tel" placeholder="email">
                 </div>
             </div>
 
@@ -46,22 +47,22 @@
 
         <div class="col-sm-4">
             <div>รูปภาพ</div>
-            <img id="blah" src="http://placehold.it/180" alt="your image" />
-            <input id="customerpic" accept="image/*" type='file' onchange="readURL(this);" />
+            <img id="showpic" src="http://placehold.it/180" alt="your image" />
+            <input type="file" id="upload" required accept="image/*" type='file' onchange="readURL(this);" />
         </div>
-
         <script>
             function readURL(input) {
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
 
                     reader.onload = function(e) {
-                        $('#blah')
+                        $('#showpic')
                             .attr('src', e.target.result);
                     };
 
                     reader.readAsDataURL(input.files[0]);
                 }
+
             }
         </script>
 

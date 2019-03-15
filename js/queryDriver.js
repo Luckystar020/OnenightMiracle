@@ -15,7 +15,7 @@
     });
 
     // Clicking to delete an item
-    delegate('.outputDriver', 'click', '.delete', (event) => {
+    delegate('.outputDriver', 'click', '#delete', (event) => {
         if (event) {
 
             let key = getKeyFromClosestElement(event.delegateTarget);
@@ -37,15 +37,22 @@
     });
 
     // Clicking to do / undo an item
-    delegate('.outputDriver', 'click', '.done-it', (event) => {
+    delegate('.outputDriver', 'click', '#edit', (event) => {
+        if (event) {
 
-        let key = getKeyFromClosestElement(event.delegateTarget);
-        renderFormList(into, state)
-            // Update the `done` value of that particular key to be the `checked` state of
-            // the `<input>` checkbox.
-        firebase.database().ref(`driver/${key}/`).update({
-            done: event.delegateTarget.checked
-        });
+            let keyEdit = getKeyFromClosestElement(event.delegateTarget);
+
+            if (window.confirm(`ต้องการแก้ไขข้อมูลหรือๆไม่ ? ${keyEdit}`)) {
+                sessionStorage.setItem('key', keyEdit);
+
+                // They clicked Yes
+                // Remove that particular key
+                changecontent('editDriver.html');
+            } else {
+                // They clicked no
+                return;
+            }
+        }
     });
 
     function renderList(into, state) {
@@ -57,11 +64,12 @@
             <td>${state.list[key].driver_name}</td>
             <td>${state.list[key].driver_email}</td>
             <td>${state.list[key].driver_tel}</td>
+            <td><img class="zoom" src="${state.list[key].driver_pic}" height="50" width="50"></td>
             <td>${state.list[key].driver_citizen}</td>
             <td>${state.list[key].carNumber}</td>
             <td data-id="${key}">
-            <button type="button" class="delete btn btn-danger">ลบ</button>
-            <button type="button" class="done-itbtn btn btn-warning" onclick="changecontent('editDriver.html')">แก้ไข</button>
+            <button type="button" id="delete" class="delete btn btn-danger">ลบ</button>
+            <button type="button" id="edit" class="done-it btn btn btn-warning">แก้ไข</button>
             </td>
           </tr>
         `;
