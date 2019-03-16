@@ -37,7 +37,7 @@
         let value5 = document.querySelector("#drivertel").value;
         let value6 = document.querySelector("#driveremail").value;
         let value7 = document.querySelector("#showpic").src;
-
+        
         // Remove whitespace from start and end of input
         //value = value.trim();
 
@@ -70,7 +70,7 @@
             alert("ให้เลือกรูปลูกค้า");
             return false;
         } else {
-            confirmUpload();
+            
             setTimeout(() => {
                 UpdateDriver(value1, value2, value3, value4, value5, value6, value7)
             }, 2000);
@@ -101,7 +101,6 @@
                 document.querySelector("#driversurname").value = "";
                 document.querySelector("#drivercitizen").value = "";
                 document.querySelector("#drivertel").value = "";
-                document.querySelector("#driveraddress").value = "";
                 document.querySelector("#driveremail").value = "";
                 document.querySelector('#showpic').src = 'http://placehold.it/180';
                 sessionStorage.removeItem('ImgURL');

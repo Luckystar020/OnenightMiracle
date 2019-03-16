@@ -78,7 +78,7 @@
             let datetime = new Date(state.list[key].time_book);
             console.log(datetime);
 
-            let formatted_date = datetime.getFullYear() + "-" + (datetime.getMonth() + 1) + "-" + datetime.getDate() + " " + datetime.getHours() + ":" + datetime.getMinutes() + ":" + datetime.getSeconds()
+            let formatted_date = datetime.getDate() + "-" + (datetime.getMonth() + 1) + "-" + datetime.getFullYear() + " " + datetime.getHours() + ":" + datetime.getMinutes() + ":" + datetime.getSeconds()
 
             return `
             <tr>

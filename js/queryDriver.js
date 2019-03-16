@@ -60,15 +60,11 @@
         into.innerHTML = Object.keys(state.list).map((key) => {
             return `
             <tr>
-            <td>${state.list[key].driver_id}</td>
             <td>${state.list[key].driver_name}</td>
-            <td>${state.list[key].driver_email}</td>
             <td>${state.list[key].driver_tel}</td>
             <td><img class="zoom" src="${state.list[key].driver_pic}" height="50" width="50"></td>
-            <td>${state.list[key].driver_citizen}</td>
             <td>${state.list[key].carNumber}</td>
             <td data-id="${key}">
-            <button type="button" id="delete" class="delete btn btn-danger">ลบ</button>
             <button type="button" id="edit" class="done-it btn btn btn-warning">แก้ไข</button>
             </td>
           </tr>
