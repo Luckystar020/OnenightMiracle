@@ -55,17 +55,47 @@
         }
     });
 
+    //if click works 
+    delegate('.outputDriver', 'click', '#works', (event) => {
+
+        let key = getKeyFromClosestElement(event.delegateTarget);
+
+        // Update the `done` value of that particular key to be the `checked` state of
+        // the `<input>` checkbox.
+
+        sessionStorage.setItem('key', key);
+        // They clicked Yes
+        // Remove that particular key
+        changecontent('addWorks.html');
+
+
+    });
+
+    //if click not works
+    delegate('.outputDriver', 'click', '#notworks', (event) => {
+
+        let key = getKeyFromClosestElement(event.delegateTarget);
+
+        // Update the `done` value of that particular key to be the `checked` state of
+        // the `<input>` checkbox.
+        firebase.database().ref(`driver/${key}/`).update({
+            works: false
+        });
+        alert('success!');
+    });
+
     function renderList(into, state) {
         // Iterate over each element in the object
         into.innerHTML = Object.keys(state.list).map((key) => {
             return `
-            <tr ${state.list[key].works ? " " : "hidden"}>
+            <tr>
             <td>${state.list[key].driver_name}</td>
             <td>${state.list[key].driver_tel}</td>
             <td><img class="zoom" src="${state.list[key].driver_pic}" height="50" width="50"></td>
-            <td>${state.list[key].carNumber}</td>
+            <td>${state.list[key].works ? "ทำงาน":"ไม่ทำงาน"}</td>
             <td data-id="${key}">
-            <button type="button" id="edit" class="done-it btn btn btn-warning">แก้ไข</button>
+            <button type="button" id="works" class="done-it btn btn btn-success">ทำงาน</button>
+            <button type="button" id="notworks" class="done-it btn btn btn-warning">ไม่ทำงาน</button>
             </td>
           </tr>
         `;

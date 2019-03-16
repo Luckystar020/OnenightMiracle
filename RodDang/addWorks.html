@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script type="text/javascript" src="../js/addWorks.js"></script>
+<script src="../js/upload.js"></script>
+
+
+<body>
+    <form class="container ">
+        <div class="col-sm-8">
+            <div>
+                <div class="col-sm-6">
+                    เลขรถ
+                    <input type="text" class="form-control" id="carNumber" name="id_car" placeholder="ใส่เลขรถ">
+                </div>
+            </div>
+
+            <div>
+                <div class="col-sm-6">
+                    ชื่อจริง
+                    <input type="text" class="form-control" id="drivername" name="driver_name" placeholder="ใส่ชื่อจริง" disabled> </div>
+            </div>
+            <div class="col-sm-6">
+                นามสกุล
+                <input type="text" class="form-control" id="driversurname" name="driver_surname" placeholder="ใส่นามสกุล" disabled>
+            </div>
+
+            <div>
+                <div class="col-sm-6">
+                    รหัสบัตรประชาชน
+                    <input type="text" class="form-control" id="drivercitizen" name="driver_citizen" placeholder="ใส่รหัสบัตรประชาชน" disabled>
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-6">
+                    email
+                    <input type="text" class="form-control" id="driveremail" name="driver_tel" placeholder="ใส่เบอร์โทรศัพท์" disabled>
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-6">
+                    เบอร์โทรศัพท์
+                    <input type="text" class="form-control" id="drivertel" name="driver_tel" placeholder="ใส่เบอร์โทรศัพท์" disabled>
+                </div>
+            </div>
+            <div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-success" id="buttonedit">ยืนยัน</button>
+
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-danger" id="buttoncancel" onclick="changecontent('driver.html')">ยกเลิก</button>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-4">
+            <div>รูปภาพ</div>
+            <img id="showpic" src="http://placehold.it/180" alt="your image" />
+            <input type="file" id="upload" disabled accept="image/*" type='file' onchange="readURL(this);" />
+        </div>
+
+
+
+
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#showpic')
+                            .attr('src', e.target.result);
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+
+            }
+        </script>
+
+        <br>
+
+    </form>
+    <br>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script> -->
+
+    <!-- firebase connect -->
+    <!-- <script type="text/javascript" src="../js/pdo.js"></script> -->
+    <!-- --------------  -->
+
+
+</body>
+
+</html>

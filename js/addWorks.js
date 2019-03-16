@@ -14,7 +14,7 @@
                 let name = snapshot.val().driver_name;
                 let sp_name = name.split(" ");
 
-                $('#carNumber').val(snapshot.val().carNumber)
+
                 $('#drivername').val(sp_name[0])
                 $('#driversurname').val(sp_name[1])
                 $('#drivercitizen').val(snapshot.val().driver_citizen);
@@ -83,7 +83,8 @@
 
         if (value6 != null) {
             firebase.database().ref(`driver/${key}/`).update({
-                carNumber: value1
+                carNumber: value1,
+                works: true
                     // driver_id: key,
                     // driver_name: value2 + " " + value3,
                     // driver_citizen: value4,

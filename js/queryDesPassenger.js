@@ -87,7 +87,7 @@
             <td>${state.list[key].load_baggage} ใบ</td>
             <td>${state.list[key].price} บาท</td>
             <td>${formatted_date}</td>
-            <td> <button type="button" id="des" class=" done-it btn btn-info" onclick="gotoMap(${state.list[key].start_lat},${state.list[key].start_long},${state.list[key].latitude},${state.list[key].longitude})" >รายละเอียด</button></td>
+            <td> <button type="button" id="des" class=" done-it btn btn-info" onclick="gotoMap(${state.list[key].start_lat},${state.list[key].start_long},${state.list[key].latitude},${state.list[key].longitude})" >${state.list[key].route_name}</button></td>
             <td>${state.list[key].status_book}</td>
           </tr>
         `;
@@ -98,7 +98,8 @@
     function getKeyFromClosestElement(element) {
 
         // Search for the closest parent that has an attribute `data-id`
-        let closestItemWithId = closest(event.delegateTarget, '[data-id]')
+        ttribute `data-id`
+        ItemWithId = closest(event.delegateTarget, '[data-id]')
 
         if (!closestItemWithId) {
             throw new Error('Unable to find element with expected data key');

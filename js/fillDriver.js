@@ -68,7 +68,8 @@
                     driver_citizen: value4,
                     driver_tel: value5,
                     driver_email: value6,
-                    driver_pic: value7
+                    driver_pic: value7,
+                    works: false //set default false if
                 }).then(function() {
                     alert("Added data successful");
                 }).finally(function() {
@@ -82,7 +83,7 @@
                     document.querySelector("#driveremail").value = "";
                     key = "";
                     sessionStorage.removeItem('ImgURL');
-                    changecontent('driver.html');
+                    changecontent('changeDriver.html');
                 });
             }
         }
