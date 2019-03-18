@@ -75,8 +75,15 @@
         // Iterate over each element in the object
 
         into.innerHTML = Object.keys(state.list).map((key) => {
+            let drivername;
             let datetime = new Date(state.list[key].time_book);
-            console.log(datetime);
+
+            if (state.list[key].driver_name == undefined) {
+                drivername = "ไม่พบข้อมูลคนขับ"
+            } else {
+                drivername = state.list[key].driver_name;
+            }
+
 
             let formatted_date = datetime.getDate() + "-" + (datetime.getMonth() + 1) + "-" + datetime.getFullYear() + " " + datetime.getHours() + ":" + datetime.getMinutes() + ":" + datetime.getSeconds()
 
@@ -88,6 +95,7 @@
             <td>${state.list[key].price} บาท</td>
             <td>${formatted_date}</td>
             <td> <button type="button" id="des" class=" done-it btn btn-info" onclick="gotoMap(${state.list[key].start_lat},${state.list[key].start_long},${state.list[key].latitude},${state.list[key].longitude})" >${state.list[key].route_name}</button></td>
+            <td>${drivername}</td>
             <td>${state.list[key].status_book}</td>
           </tr>
         `;
