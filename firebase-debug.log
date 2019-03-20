@@ -1,0 +1,29 @@
+[debug] [2019-03-20T17:43:33.645Z] ----------------------------------------------------------------------
+[debug] [2019-03-20T17:43:33.647Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2019-03-20T17:43:33.647Z] CLI Version:   6.5.0
+[debug] [2019-03-20T17:43:33.647Z] Platform:      darwin
+[debug] [2019-03-20T17:43:33.647Z] Node Version:  v8.11.3
+[debug] [2019-03-20T17:43:33.648Z] Time:          Thu Mar 21 2019 00:43:33 GMT+0700 (+07)
+[debug] [2019-03-20T17:43:33.648Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-03-20T17:43:33.656Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-03-20T17:43:33.656Z] > authorizing via signed-in user
+[debug] [2019-03-20T17:43:33.656Z] [iam] checking project example-6b911 for permissions ["firebase.projects.get"]
+[debug] [2019-03-20T17:43:33.658Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-03-20T17:43:33.658Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-03-20T17:43:33.925Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-20T17:43:33.944Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/example-6b911:testIamPermissions  
+
+[debug] [2019-03-20T17:43:35.250Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-20T17:43:35.252Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/example-6b911  
+ 
+[debug] [2019-03-20T17:43:36.507Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/iambright/Documents/Firebase'...
+[info] 
+[debug] [2019-03-20T17:43:36.510Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/541906244701/clients/_:getWebAppConfig  
+ 
+[debug] [2019-03-20T17:43:36.907Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: (public)
+[info] ✔  hosting: Local server: http://localhost:5000
