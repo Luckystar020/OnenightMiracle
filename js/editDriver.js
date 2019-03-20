@@ -121,3 +121,16 @@
         return closestItemWithId.getAttribute("data-id");
     }
 })();
+
+let driver_key = state.list[key].driver_by;
+            tableDriver.child(`${driver_key}`).once('value', function(mediasnap) {
+
+                if (mediasnap.exists()) {
+                    driver_name = mediasnap.val().driver_name;
+                    console.log(driver_name);
+
+                } else {
+                    driver_name = "ไม่พบข้อมูลคนขับ";
+                    console.log(driver_name);
+                }
+            })
